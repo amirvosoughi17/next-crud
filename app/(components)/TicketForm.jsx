@@ -5,16 +5,27 @@ import { useState } from "react";
 
 const TicketForm = () => {
   const router = useRouter()
-    const handleChange = (e) => {
-         const value = e.target.value;
-         const name = e.target.name;
-         setFormData((preState) => ({
-            ...preState,
-            [name] : value ,
-         }))
-    }
 
-     const  handleSubmit = async (e) => {
+    const handleChange = (e) => {
+      const value = e.target.value
+      const name = e.target.name;
+      setFormData((perState) => ({
+        ...perState ,
+        [name] : value
+      }))
+    } 
+    const startingTicketData  = {
+        title  : '',
+        description : '', 
+        priority :1 ,
+        progress : 0 ,
+        status : 'not Started',
+        category : 'Hardware Problem'
+    };
+    
+    const [formData , setFormData] = useState(startingTicketData);
+
+    const  handleSubmit = async (e) => {
       e.preventDefault() ;
       const res = await fetch("/api/Tickets" , {
         method : "POST" , 
@@ -27,16 +38,6 @@ const TicketForm = () => {
       router.refresh()
       router.push('/')
     }
-
-    const startingTicketData  = {
-        title  : '',
-        description : '', 
-        priority :1 ,
-        progress : 0 ,
-        status : 'not Started',
-        category : 'Hardware Problem'
-    };
-    const [formData , setFormData] = useState(startingTicketData);
 
   return (
     <div className="flex justify-center ">

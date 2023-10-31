@@ -1,9 +1,8 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faX} from '@fortawesome/free-solid-svg-icons'
+import {AiOutlineClose} from 'react-icons/ai'
 
 const DeleteBlock = () => {
   return (
-    <FontAwesomeIcon icon={faX} className="text-red-400 hover:cursor-pointer hover:text-res-200"  />
+    <AiOutlineClose />
   )
 }
 
