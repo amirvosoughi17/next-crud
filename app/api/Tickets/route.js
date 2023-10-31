@@ -1,7 +1,8 @@
-import Ticket from '@/app/(models)/Ticket';
+import Ticket from "@/app/(models)/Ticket";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
+  console.log('POST RUN')
   try {
     const body = await req.json();
     const ticketData = body.formData;
@@ -20,3 +21,4 @@ export async function GET() {
     return NextResponse.json({ message: error.message }, { status: 500 })
   }
 }
+
